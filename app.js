@@ -1,3 +1,8 @@
+const drum1 = document.querySelector(".drum1");
+const drum2 = document.querySelector(".drum2");
+const drum3 = document.querySelector(".drum3");
+const drum4 = document.querySelector(".drum4");
+
 const modelParams = {
     flipHorizontal: true,   // flip e.g for video 
     imageScaleFactor: 0.7,  // reduce input image size for gains in speed.
@@ -33,12 +38,16 @@ function runDetection() {
             if (y > 150) {
                 if (x < 250) {
                     audio.src = "a-chord.mp3";
+                    drum4.classList.toggle("drum")
                 } else if (x > 250 && x < 350) {
                     audio.src = "b-chord.mp3";
+                    drum3.classList.toggle("drum")
                 } else if (x > 350 && x < 450) {
                     audio.src = "c-chord.mp3";
+                    drum2.classList.toggle("drum")
                 } else if (x > 450) {
                     audio.src = "e-chord.mp3";
+                    drum1.classList.toggle("drum")
                 }
             }
             audio.play();
